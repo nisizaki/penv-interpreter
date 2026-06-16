@@ -165,7 +165,7 @@ class Parser:
 
     def parse_parenthesized(self, stop: set[str]) -> Term:
         self.expect("(")
-        inner = self.parse_term(stop | {"/", ")"})
+        inner = self.parse_term({"/", ")"})
         if self.at("/"):
             self.expect("/")
             name = self.expect_kind("ident").value
